@@ -1,2 +1,30 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+			
+
+			<div class="col-xs-9">
+				<h2>Users</h2>
+
+				<table class="table table-hover table-inverse">
+					
+					<thead>
+						<tr>
+							<th>image</th>
+							<th>name</th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+					<!-- 繰り返し処理 -->
+					<% @users.each do |users| %>
+						<tbody>
+							<tr>
+								<td><%= attachment_image_tag users, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  </td>
+								
+								<td><%= users.name %></td> 
+								<td><%= link_to "show", user_path(users.id) %></td>
+								
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+				
+			</div>
+			
