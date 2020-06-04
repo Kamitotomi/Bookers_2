@@ -30,7 +30,9 @@
 							<tr>
 								<td><%= attachment_image_tag User.find(book.user_id), :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  </td>
 								
+								
 								<td><%= book.title %></td> 
+
 								
 								<td><%= book.body %></td>
 							</tr>
