@@ -1,3 +1,10 @@
+<!-- フラッシュメッセージ -->
+<% if flash[:notice] %>
+      <div class="flash">
+        <p class="text"><%= flash[:notice] %></p>
+      </div>
+ <% end %>
+
 <div class="body">
 	<div class="container">
 		<p id="notice"></p>
