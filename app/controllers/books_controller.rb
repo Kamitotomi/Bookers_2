@@ -23,7 +23,9 @@ class BooksController < ApplicationController
     flash[:notice] = "Book was successfully created."
     redirect_to book_path(@book.id)
   else
-    render action: :new
+    @books = Book.all
+    @user = current_user
+    render action: :index #indexにするとuserが引っかかってエラー。必要な記述は？
   end
 end
 

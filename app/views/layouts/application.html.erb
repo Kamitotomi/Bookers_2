@@ -21,15 +21,15 @@
             <!-- この部分にif構文 -->
             <% if user_signed_in? %>
 
-                <%= link_to 'マイページ', user_path(current_user.id) %>
+                <li><%= link_to 'Home', user_path(current_user.id), class: "glyphicon glyphicon-home home" %></li>
 
 
                 <li><a class="glyphicon glyphicon-user users" href="/users"> Users</a></li>
 
                 <li><a class="glyphicon glyphicon-book books" href="/books"> Books</a></li>
 
-                <li class="">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <li>
+                  <%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %>
                 </li>
 
                 
