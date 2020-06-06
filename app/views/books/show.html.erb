@@ -19,7 +19,7 @@
 			<!-- ログインユーザーの投稿一覧 -->
 
 			<div class="col-xs-9">
-				<h2>Books</h2>
+				<h2>Book detail</h2>
 
 				<table class="table table-hover table-inverse">
 					
@@ -35,7 +35,13 @@
 					
 						<tbody>
 							<tr>
-								<td><%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  </td>
+								<td>
+									<%= link_to user_path(@books.user_id) do %>
+									<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>  
+									<p><%= @user.name %></p>
+									<% end %>
+								
+								</td>
 								
 								
 								<td><%= @books.title %></td> 
@@ -43,9 +49,9 @@
 								<td><%= @books.body %></td>
 								
 								<% if @books.user == current_user %>
-								<td><%= link_to "edit", edit_book_path(@books) %></td>
+								<td><%= link_to "Edit", edit_book_path(@books) %></td>
 								
-								<td><%= link_to "削除", book_path(@books), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+								<td><%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
 								<% end %>
 							</tr>
 						</tbody>

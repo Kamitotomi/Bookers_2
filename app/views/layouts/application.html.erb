@@ -21,7 +21,7 @@
             <!-- この部分にif構文 -->
             <% if user_signed_in? %>
 
-                <li><%= link_to 'Home', user_path(current_user.id), class: "glyphicon glyphicon-home home" %></li>
+                <li><%= link_to "Home", user_path(current_user.id), class: "glyphicon glyphicon-home home" %></li>
 
 
                 <li><a class="glyphicon glyphicon-user users" href="/users"> Users</a></li>
