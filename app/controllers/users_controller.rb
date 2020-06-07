@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+
+  before_action :correct_user, only: [:edit, :update]
   def index
     @book = Book.new
     @user = current_user
@@ -21,6 +23,15 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
+
+  def correct_user
+  @user = current_user.id
+    unless @user
+      redirect_to books_path
+    end
+end
+
+
 
   private
 
