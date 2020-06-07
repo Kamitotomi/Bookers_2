@@ -45,6 +45,7 @@ def update
         flash[:notice] = "Book was successfully updated."
        redirect_to book_path(@book.id)
   else
+      
       render action: :edit
   end
 end

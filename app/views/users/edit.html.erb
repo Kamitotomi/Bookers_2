@@ -4,6 +4,15 @@
 		<h2>User info</h2>
 
 		<%= form_for(@user) do |f| %>
+			<!-- エラーメッセ -->
+			<% if @user.errors.any? %>
+				<h3><%= @user.errors.count %>1 error prohibited this obj from being saved:</h3>
+    				<ul>
+      					<% @user.errors.full_messages.each do |message| %>
+        				<li><%= message %></li>
+     					<% end %>
+    				</ul>
+			<% end %>
 		
 			<h4>Name</h4>
 				<%= f.text_field :name %>
