@@ -1,5 +1,11 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
+  
+  
+
   def index
     @book = Book.new
     @books = Book.all
@@ -48,6 +54,15 @@ end
     @book.destroy
     redirect_to books_path
   end
+
+def correct_user
+  @book = current_user.books.find_by(id: params[:id])
+    unless @book
+      redirect_to books_path
+    end
+end
+  
+  
 
   private
   def book_params

@@ -3,8 +3,9 @@
 <div class="body">
 	<div class="container">
 		<p id="notice"></p>
-
+		
 		<div class="row">
+		<%= flash[:notice] %>
 			<div class="col-xs-3">
 				<%= render 'users/cope', user: @user %>
 				<!-- 新規投稿部分（共通テンプレ？） -->
